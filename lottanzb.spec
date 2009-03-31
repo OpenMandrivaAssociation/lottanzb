@@ -1,7 +1,7 @@
 Summary: LottaNZB - Automated Usenet Client
 Name: lottanzb
 Version: 0.4.1
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: %{name}-%{version}.tar.gz
 License: GPL
 Group: Networking/News
@@ -14,8 +14,8 @@ BuildRequires: python-kiwi
 Requires: python-kiwi
 Requires: python
 Requires: hellanzb
-Requires: pygtk2
-Requires: pygtk2-libglade
+Requires: pygtk2.0
+Requires: pygtk2.0-libglade
 Url: http://www.lottanzb.org/
 
 %description
@@ -31,6 +31,9 @@ python setup.py build
 python setup.py install --root=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
+for omf in %buildroot%_datadir/omf/*/*[_-]??.omf;do 
+echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name.lang
+done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -58,4 +61,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/applications/lottanzb.desktop
 %{_datadir}/mime-info/%{name}.*
 %{_datadir}/mime/packages/*
-%{_datadir}/omf/lottanzb/*.omf
+%dir %{_datadir}/omf/lottanzb/
+%{_datadir}/omf/lottanzb/*-C.omf
