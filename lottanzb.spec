@@ -1,7 +1,7 @@
 Summary: LottaNZB - Automated Usenet Client
 Name: lottanzb
 Version: 0.4.1
-Release: %mkrel 2
+Release: %mkrel 3
 Source0: %{name}-%{version}.tar.gz
 License: GPL
 Group: Networking/News
