@@ -11,6 +11,7 @@ BuildArch: noarch
 BuildRequires: python-devel
 BuildRequires: pygtk2.0-devel
 BuildRequires: python-kiwi
+BuildRequires: intltool
 Requires: python-kiwi
 Requires: python
 Requires: hellanzb
