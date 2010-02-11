@@ -30,14 +30,15 @@ python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-python setup.py install --root=$RPM_BUILD_ROOT
+python setup.py install --packaging-mode --root=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
 for omf in %buildroot%_datadir/omf/*/*[_-]??.omf;do 
 echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name.lang
 done
 
-rm -fr %buildroot%{_datadir}/mime %buildroot%{_datadir}/doc
+rm -fr %buildroot%_datadir/doc
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
