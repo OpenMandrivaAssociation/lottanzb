@@ -29,6 +29,7 @@ LottaNZB is a Usenet client that automates the download of Usenet files with the
 python setup.py build
 
 %install
+rm -rf $RPM_BUILD_ROOT
 python setup.py install --root=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
@@ -36,6 +37,7 @@ for omf in %buildroot%_datadir/omf/*/*[_-]??.omf;do
 echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name.lang
 done
 
+rm -fr %buildroot%{_datadir}/mime %buildroot%{_datadir}/doc
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -53,11 +55,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(-,root,root)
+%{_sysconfdir}/apport/crashdb.conf.d/lottanzb-crashdb.conf
+%{_datadir}/apport
 %{_bindir}/*
 %{py_puresitedir}/%{name}/*
 %{_datadir}/%{name}/*
 %{_datadir}/icons/*
 %{py_puresitedir}/%{name}-%{version}-*.egg-info
+%{_mandir}/man1/*
 %{_datadir}/application-registry/lottanzb.applications
 %{_datadir}/applications/lottanzb.desktop
 %{_datadir}/mime-info/%{name}.*
