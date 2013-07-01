@@ -1,4 +1,4 @@
-Summary:	LottaNZB - Automated Usenet Client
+Summary:	- Automated Usenet Client
 Name:		lottanzb
 Version:	0.5.3
 Release:	3
