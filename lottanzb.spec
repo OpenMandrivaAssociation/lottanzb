@@ -1,7 +1,7 @@
 Summary:	Automated Usenet Client
 Name:		lottanzb
 Version:	0.5.3
-Release:	4
+Release:	5
 License:	GPL
 Group:		Networking/News
 Url:		http://www.lottanzb.org/
