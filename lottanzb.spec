@@ -4,7 +4,7 @@ Version:	0.5.3
 Release:	5
 License:	GPL
 Group:		Networking/News
-Url:		http://www.lottanzb.org/
+Url:		https://www.lottanzb.org/
 Source0:	http://launchpad.net/lottanzb/0.5/%{version}/+download/%{name}-%{version}.tar.gz
 BuildRequires:	python-devel
 BuildRequires:	pygtk2.0-devel
